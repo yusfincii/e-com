@@ -1,4 +1,4 @@
-package com.ecom.user.common.exception;
+package com.ecom.order.common.exception;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
     // dto validation annotations
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrors
-            (MethodArgumentNotValidException exception){
+    (MethodArgumentNotValidException exception){
         Map<String, String> errors = new HashMap<>();
         exception.getBindingResult().getFieldErrors().forEach(
                 error -> errors.put(error.getField(), error.getDefaultMessage())
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
     // base exception
     @ExceptionHandler(BaseException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrorsBase
-            (BaseException exception){
+    (BaseException exception){
         Map<String, String> errors = new HashMap<>();
         errors.put("app", appName);
         errors.put("message", exception.getMessage());
