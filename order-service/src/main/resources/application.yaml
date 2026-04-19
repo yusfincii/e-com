@@ -2,7 +2,11 @@ spring:
   application:
     name: order
   datasource:
-    url:
+    url: jdbc:postgresql://localhost:5432/e-comm
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
   port: 8082
